@@ -11,10 +11,10 @@ USE burgers_db;
 CREATE TABLE burger
 (
 	id int NOT NULL AUTO_INCREMENT,
-	burger_name STRING,
-	devoured BOOLEAN DEFAULT false,
+	burger_name VARCHAR(80),
+	devoured BOOLEAN,
 	PRIMARY KEY (id)
 );
 
-select burgers_db;
+
 
