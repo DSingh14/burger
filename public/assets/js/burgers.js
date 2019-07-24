@@ -21,14 +21,14 @@ $(function () {
         });
     });
 
-    $(".eatburger").on("click", function (event) {
+    $("body").on("click", ".eatburger", function (event) {
         event.preventDefault();
 
         var id = $(this).data("id");
         var devouredState = {
             devoured: 1
         };
-
+        console.log(devouredState);
         // Send the PUT request.
         $.ajax("/api/burgers/" + id, {
             type: "PUT",

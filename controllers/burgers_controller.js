@@ -6,6 +6,7 @@ var burger = require("../models/burger.js")
 //  create logic for routes 
 router.get("/", function (req, res) {
     burger.all(function (data) {
+        console.log(data);
         res.render("index", { burgers: data });
     });
 });
@@ -15,20 +16,23 @@ router.get("/api/burgers/", function (req, res) {
 
 });
 router.post("/api/burgers/", function (req, res) {
-    burger.create([
-        "burger_name"
-    ], [
-            req.body.name
-        ], function (result) {
+    console.log(req.body)
+    burger.create(
+        ["burger_name", "devoured"],
+        [req.body.burger_name, req.body.devoured],
+        function (result) {
             res.json({ id: result.insertedid });
         });
 
 });
 router.put("/api/burgers/:id", function (req, res) {
-    var id = "id : " + req.params.id;
-    var devor = { devored: req.body.devored }
-    burger.update(devor, id, function (req, res) {
-        res.rediresct("/");
+    var id = " id=" + req.params.id;
+    var devor = { devoured: 1 };
+    console.log(devor)
+    console.log(id)
+    burger.update(devor, id, function (data) {
+
+        res.render("index", { burgers: data });
     });
 });
 
