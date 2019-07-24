@@ -1,10 +1,5 @@
-var connection = require("./connection.js");
-
-// Object Relational Mapper (ORM)
-
-// The ?? signs are for swapping out table or column names
-// The ? signs are for swapping out other values
-// These help avoid SQL injection
+// Import MySQL connection.
+var connection = require("../config/connection.js");
 
 // Helper function for SQL syntax.
 // Let's say we want to pass 3 values into the mySQL query.
@@ -20,34 +15,41 @@ function printQuestionMarks(num) {
 
     return arr.toString();
 }
-// helper function to convert object/value pair for SQL syntax
+
+// Helper function to convert object key/value pairs to SQL syntax
 function objToSql(ob) {
     var arr = [];
+
     // loop through the keys and push the key/value as a string int arr
     for (var key in ob) {
         var value = ob[key];
         // check to skip hidden properties
         if (Object.hasOwnProperty.call(ob, key)) {
+            // if string with spaces, add quotations (Lana Del Grey => 'Lana Del Grey')
             if (typeof value === "string" && value.indexOf(" ") >= 0) {
                 value = "'" + value + "'";
             }
+            // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
+            // e.g. {sleepy: true} => ["sleepy=true"]
             arr.push(key + "=" + value);
         }
     }
+
     // translate array of strings to a single comma-separated string
     return arr.toString();
 }
 
-
+// Object for all our SQL statement functions.
 var orm = {
-    selectAll: function (tableInput, colToSearch) {
-        var queryString = "SELECT * FROM ?? WHERE ?? = ?";
-        connection.query(queryString, [burgers, burgers_name], function (err, result) {
-            if (err) throw err;
-            console.log(result);
+    all: function (tableInput, cb) {
+        var queryString = "SELECT * FROM " + tableInput + ";";
+        connection.query(queryString, function (err, result) {
+            if (err) {
+                throw err;
+            }
+            cb(result);
         });
     },
-
     create: function (table, cols, vals, cb) {
         var queryString = "INSERT INTO " + table;
 
@@ -101,5 +103,5 @@ var orm = {
     }
 };
 
-// Export the orm object for the model (burger.js).
+// Export the orm object for the model (cat.js).
 module.exports = orm;

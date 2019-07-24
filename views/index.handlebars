@@ -1,39 +1,57 @@
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <h1 class="display-4">Welcome burger lover's!</h1>
-        <center>
-            <img src="./public/assets/img/veggi burger.jpg" width="80%">
-        </center>
+<div class=container>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Welcome burger lover's!</h1>
+            <center>
+                <img src="../assets/img/veggi burger.jpg" width="50%">
+            </center>
+        </div>
     </div>
     <row>
         {{!-add burger with devour button --}}
         <div class="col-md-6">
             <h1 class="display-4">Burger Want to Eat!</h1>
-            <center>
-                <img src="./public/assets/img/chicken burger.jpg" width="80%">
-            </center>
+            <left>
+                <img src="../assets/img/chicken burger.jpg" width="80%">
+            </left>
+            <ul>
+                {{#each burger}}
+                {{#unless love burger}}
+                {{>burger/burger-block add = undevour}}
+                {{/unless}}
+                {{/each}}
+            </ul>
 
 
         </div>
         {{!-- add burger afetr devour --}}
         <div class="col-md-6">
             <h1 class="display-4">Burger Eaten!</h1>
-            <center>
-                <img src="./public/assets/img/bean burger.jpg" width="80%">
-            </center>
+            <right>
+                <img src="../assets/img/bean burger.jpg" width="80%">
+            </right>
+            <ul>
+                {{#each burger}}
+                {{#unless eaten burger}}
+                {{>burger/burger-block add = devour}}
+                {{/unless}}
+                {{/each}}
+            </ul>
 
 
         </div>
 
     </row>
     {{!-- making buger request --}}
+    {{!-- <panel> --}}
     <form class="create-form">
-
         <div class="form-group">
-            <label for="ca">Order Your Burger</label>
-            <input type="text" id="ca" name="name">
+            <label for="newburger" id="color-override">New Burger:</label>
+            <input type="text" id="newburger" name="burger">
+            {{!-- Create a button in index.handlebars that will submit the user input into the database. --}}
+            <button type="submit" class="btn btn-success" id="addburger"><span class="fa fa-thumbs-up"></span></button>
         </div>
-
-        <button type="submit">Place Order</button>
     </form>
+    {{!-- </panel> --}}
+
 </div>
