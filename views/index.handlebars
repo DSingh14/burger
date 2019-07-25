@@ -36,8 +36,9 @@
                     {{#unless devoured}}
 
 
-                    <strong>{{this.id}} - {{this.burger_name}}</strong>
-                    <button class="btn btn-success eatburger" id="eatbutton" data-id='{{this.id}}'
+                    <strong id="font">{{this.id}} -{{this.burger_name}}</strong>
+
+                    <button class="btn btn-success eatburger btn-sm" id="eatbutton" data-id='{{this.id}}'
                         data-burger_name='{{this.burger_name}}'><span class="fa-fa-thumps-up"></span>devour</button>
 
                 </div>
@@ -55,8 +56,8 @@
             <ul>
                 {{#each burgers}}
                 {{#if devoured}}
-                <span><strong>{{this.id}} - {{this.burger_name}}</strong></span>
-                <button class="trashburger btn btn-warning" id="trashbutton" data-id='{{this.id}}'
+                <span><strong id="font">{{this.id}} - {{this.burger_name}}</strong></span>
+                <button class="trashburger btn btn-warning btn-sm" id="trashbutton" data-id='{{this.id}}'
                     data-burger_name='{{this.burger_name}}'><span class="fa-fa-thumps-up"></span>devour</button>
 
                 {{/if}}
