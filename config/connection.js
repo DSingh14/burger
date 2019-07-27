@@ -1,18 +1,18 @@
 
-// var dotenv = require(".dotenv")
-// dotenv.config();
+var dotenv = require(".dotenv")
+dotenv.config();
 
 var mysql = require("mysql");
-var { root, Jaimatadi1, burgers_db } = process.env;
+var { user, password, database } = process.env;
 
 
 // create connection
 var config = {
     port: 3306,
     host: 'localhost',
-    user: "root",
-    password: "Jaimatadi1",
-    database: "burgers_db"
+    user: user,
+    password: password,
+    database: database
 }
 var connection;
 var host;
@@ -23,11 +23,6 @@ if (process.env.JAWSDB_URL) {
 } else {
     connection = mysql.createConnection(
         config
-        // host: "localhost",
-        // port: 3306,
-        // user: "root",
-        // password: "Jaimatadi1",
-        // database: "burgers_db"
     );
     host = 'localhost';
 };
@@ -39,10 +34,6 @@ connection.connect(function (err) {
         console.log('connected with' + host);
     }
 });
-
-
-
-
 
 
 module.exports = connection;
