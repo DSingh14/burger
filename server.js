@@ -2,7 +2,7 @@ var express = require("express");
 // // Set Handlebars.
 var exphbs = require("express-handlebars");
 // // Import routes and give the server access to them.
-var routes = require("./controllers/burgers_Controller.js");
+var routes = require("./controllers/burgers_controller.js");
 var PORT = process.env.PORT || 3700;
 
 var app = express();
