@@ -1,5 +1,5 @@
 
-var dotenv = require(".dotenv")
+var dotenv = require("dotenv")
 dotenv.config();
 
 var mysql = require("mysql");
