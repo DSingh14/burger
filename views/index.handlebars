@@ -1,34 +1,30 @@
 <div class="container">
-    <div class="col-md-12">
-        {{!-- <div class="row"></div> --}}
-        <div class="jumbotron">
-            <div class="main">
-                <h1 class="display-4" id="color-override">Welcome burger lover's!</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="jumbotron">
+                <div class="main">
+                    <h1 class="display-4" id="color-override">Welcome burger lover's!</h1>
+                </div>
+                <br>
+                <panel>
+                    <form class="create-form">
+                        <div class="form-group">
+                            <h3 id="color-override">Make a Burger </h3>
+                            <label for="newburger" id="color-override"> New Burger : </label>
+                            <input type="text" id="newburger" name="burger">
+                            <button type="submit" class="btn btn-success" id="addburger"><span class="ion-icon"
+                                    name="cog"></span>
+                            </button>
+                        </div>
+                    </form>
+                </panel>
             </div>
-            <br>
-            {{!-- making buger request --}}
-            <panel>
-                <form class="create-form">
-                    <div class="form-group">
-                        <h3 id="color-override">Make a Burger </h3>
-                        <label for="newburger" id="color-override"> New Burger : </label>
-                        <input type="text" id="newburger" name="burger">
-                        {{!-- Create a button in index.handlebars that will submit the user input into the database. --}}
-                        <button type="submit" class="btn btn-success" id="addburger"><span class="ion-icon"
-                                name="cog"></span>
-                        </button>
-                    </div>
-                </form>
-            </panel>
-
         </div>
     </div>
-
-    {{!-- </div> --}}
     <div class="row">
 
-        <div class="col-md-6">
-            {{!-add burger with devour button --}}
+        <div class="col-6">
+
             <h2 class="display-4" id="lefthead">Burger of your choice!</h2>
             <ul>
                 <div class="font">
@@ -50,7 +46,7 @@
         </div>
 
         {{!-- add burger after devour --}}
-        <div class="col-md-6">
+        <div class="col-6">
             <h2 class="display-4" id="righthead"> Eaten Yummy Burger!</h2>
 
             <ul>
@@ -63,13 +59,12 @@
                 {{/if}}
                 {{/each}}
             </ul>
-
-
         </div>
+    </div>
+    <div class="row">
         <div class="col-md-12 text-center">
             <h3 class="thanks" id="color-override">Come Again to Enjoy our Burger</h3>
         </div>
-
-
     </div>
+
 </div>
