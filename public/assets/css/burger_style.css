@@ -28,6 +28,7 @@ body{
     color: white;
     text-align: center;
     font-size: 1.2em;
+    
 }
 
 #eatbutton, #trashbutton {
@@ -47,6 +48,7 @@ body{
     color: white;
     text-align: center;
     font-size: 1.2em;
+   
 }
 .thanks {
     width: 100%; 
