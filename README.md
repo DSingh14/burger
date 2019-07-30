@@ -22,4 +22,6 @@ The app also has a funny "Whine" feature, where random sound effects are played 
 
 Lastly, the app's front-end design uses Bootstrap. This means that your burgers look just as tasty on mobile as they do on desktop. Please see the screenshots below...
 
+### ScreenShot for the Burger app.
 
+<img width="1217" alt="Screen Shot 2019-07-29 at 9 37 57 AM" src="https://user-images.githubusercontent.com/51105876/62095310-a60f0300-b245-11e9-959f-c7ee176005b3.png">
