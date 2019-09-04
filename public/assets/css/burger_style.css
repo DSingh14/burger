@@ -31,7 +31,7 @@ body{
     
 }
 
-#eatbutton, #trashbutton {
+#eatbutton, #trashbutton ,#addburger{
     float: center;
     margin-right: 10%;
     font-size: .575rem;
