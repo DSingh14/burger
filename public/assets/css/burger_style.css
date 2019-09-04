@@ -52,6 +52,9 @@ body{
 }
 .thanks {
     width: 100%; 
+    position: fixed;
+    height: 15%;
+    bottom: 0;
     
   }
   #font{
